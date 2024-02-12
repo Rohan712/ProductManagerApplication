@@ -12,7 +12,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import com.example.ProductManagerApplication.entity.Product;
-import com.example.ProductManagerApplication.repo.ProductRepository;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -23,38 +22,8 @@ import static org.mockito.Mockito.*;
 @WebMvcTest(ProductManagerApplicationController.class)
 class ProductManagerApplicationControllerTest {
 	 private ProductManagerApplicationController productController;
-
-	    
 	    @Autowired
 	    private MockMvc mockMvc;
-
-	   
-	   
-//	    @Test
-//	    void testupdateProduct() throws Exception {
-//	    	   String productJson = "{\"name\":\"Test Product\", \"description\":\"Test Description\", \"price\":50.0, \"quantityAvailable\":100}";
-//	           String createdProductResponse = mockMvc.perform(MockMvcRequestBuilders.post("/api/products")
-//	                   .contentType(MediaType.APPLICATION_JSON)
-//	                   .content(productJson))
-//	                   .andExpect(status().isOk())
-//	                   .andReturn().getResponse().getContentAsString();
-//
-//	           // Extract productId from the created product response
-//	           String productId = extractProductId(createdProductResponse);
-//
-//	           // Update product details
-//	           String updatedProductJson = "{\"name\":\"Updated Test Product\", \"description\":\"Updated Test Description\", \"price\":60.0, \"quantityAvailable\":200}";
-//	           mockMvc.perform(MockMvcRequestBuilders.put("/api/products/{productId}", productId)
-//	                   .contentType(MediaType.APPLICATION_JSON)
-//	                   .content(updatedProductJson))
-//	                   .andExpect(status().isOk())
-//	                   .andExpect(MockMvcResultMatchers.content().string("Product updated successfully"));
-//	           private String extractProductId(String responseJson) {
-//	 
-//	               return "some-product-id";
-//	           }
-//	    }
-//	    
 	    @BeforeEach
 	    void setUp() throws Exception {
 	        mockMvc.perform(MockMvcRequestBuilders.delete("/api/products")); // Clearing existing products before each test
